@@ -1,11 +1,5 @@
-import Header from "./components/layout/Header/Header"
+import { Home } from './pages/Home/Home';
 
-function App() {
-  return (
-    <div>
-      <Header></Header>
-    </div>
-  )
+export default function App() {
+  return <Home />;
 }
-
-export default App
