@@ -3,6 +3,9 @@
 Home de e-commerce com vitrine de produtos e modal de detalhes, feita com **React + TypeScript + Vite** e **Sass**,
 sem bibliotecas de UI.
 
+## Teste o site online
+https://teste-front-end-econverse-d5q3.onrender.com
+
 ## O que precisa estar instalado
 
 | Ferramenta | Versão recomendada | Como conferir     |
