@@ -1,8 +1,7 @@
-import logoEconverse from '../../assets/images/logo.svg';
+import logoEconverse from '../../assets/images/logo.png';
 import './Logo.scss';
 
 interface LogoProps {
-  /** Altura da logo em px (a largura acompanha a proporção). */
   height?: number;
 }
 
