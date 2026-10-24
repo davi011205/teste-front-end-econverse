@@ -1,31 +1,54 @@
 # Teste Econverse: Vaga Desenvolvedor Front-End
 
-### Vem ser #Econverse!
+Home de e-commerce com vitrine de produtos e modal de detalhes, feita com **React + TypeScript + Vite** e **Sass**,
+sem bibliotecas de UI.
 
-Segue abaixo as instruções para a execução do teste.
+## O que precisa estar instalado
 
-## Instruções
-- Faça um fork desse projeto para a sua conta pessoal do GitHub.
-- Desenvolva a página conforme as **Especificações Técnicas** 
-- Crie um README com as instruções para compilar, testar e rodar o projeto.
-- O link do repositório deverá ser enviado para o e-mail gustavo.cipriano@econverse.com.br com o título **Teste Vaga FrontEnd**
+| Ferramenta | Versão recomendada | Como conferir     |
+| ---------- | ------------------ | ----------------- |
+| Node.js    | 20.19+ ou 22.12+   | `node -v`         |
+| npm        | 10+ (vem com o Node) | `npm -v`        |
+| Git        | qualquer versão recente | `git --version` |
+| Navegador  | Chrome, Edge, Firefox ou Safari atualizados | — |
 
-## Especificações Técnicas
-- Desenvolver a pagina em React e TypeScript conforme o [layout](https://www.figma.com/file/rWnzPeoxgynuNPsJjV0VmV/Teste-Front-End-Jr?node-id=0%3A1). Para conseguir pegar os elementos do Figma, basta copiar o layout para sua conta que terá acesso de edição.
-- Montar a [vitrine](https://app.econverse.com.br/teste-front-end/junior/tecnologia/layout/vitrine-produtos.png) de produtos consumindo as informações dos produtos em json atraves desse [Link](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json).
-- Desenvolver a interação ao clicar em um produto conforme layout. A interação consiste em abrir um modal com as principais informações do produto presente no arquivo [JSON](https://app.econverse.com.br/teste-front-end/junior/tecnologia/lista-produtos/produtos.json) conforme o produto que clicar.
-- Utilizar Pré-processador Sass, Less ou Stylus.
-- Respeitar o Layout pixel a pixel, tamanho das fontes, cores e botões.
-- Não Utilizar bibliotecas UI como Bootstrap, Foundation, ou afins.
+Download do Node.js: https://nodejs.org
 
-## Pontos Extras
-- Utilizar Boas práticas de SEO
-- Uso de HTML semântico
+## Como rodar localmente
 
-## O que avaliaremos em seu teste
-- Organização do projeto
-- Lógica do código
-- Componentização
-- Alcance dos objetivos propostos
+```bash
+# 1. Clonar o repositório e entrar na pasta do projeto
+git clone https://github.com/davi011205/teste-front-end-econverse.git
+cd econverse
 
-**Boa sorte! ;)**
+# 2. Instalar as dependências
+npm install
+
+# 3. Instalar o pré-processador Sass (caso ainda não esteja no package.json)
+npm install -D sass
+
+# 4. Iniciar o servidor de desenvolvimento
+npm run dev
+```
+
+Abra **http://localhost:5173** no navegador.
+
+## Consumo da API (CORS)
+
+O `produtos.json` da Econverse não libera CORS para `localhost`. Por isso o `vite.config.ts` tem um **proxy** que
+redireciona `/api/econverse/*` para o servidor da Econverse, e o serviço de produtos chama `/api/econverse/produtos.json`.
+O proxy funciona com `npm run dev` e `npm run preview`. Se alterar o `vite.config.ts`, reinicie o servidor.
+
+## Estrutura
+
+```
+src/
+├── assets/          # ícones e imagens importadas pelo código
+├── components/      # cada componente tem .tsx e .scss na própria pasta
+├── hooks/           # useProducts
+├── pages/Home/      # composição da página
+├── services/        # productService (consome o produtos.json)
+├── styles/          # variáveis, mixins e estilos globais (apenas o necessário)
+├── types/           # tipos dos produtos
+└── utils/           # formatCurrency
+```
